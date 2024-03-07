@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>R&D-Nova test</title>
@@ -17,16 +17,33 @@
             border: none;
             padding: 0;
             margin: 0;
+            display: none; /* 初始时不显示iframe */
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <iframe src="https://udify.app/chat/wJw8jgRQOb8lCaPr"></iframe>
-        <iframe src="https://udify.app/chat/uIkDZGrH0miahax3"></iframe>
-        <iframe src="https://udify.app/chat/77A1ymjPJvcQdPd2"></iframe>
-        <iframe src="https://udify.app/chat/YobkrDsZdtlD6A6A"></iframe>
-        <iframe src="https://udify.app/chat/3c09C7zIXwQsLgru"></iframe>
+        <iframe data-src="https://udify.app/chat/wJw8jgRQOb8lCaPr"></iframe>
+        <iframe data-src="https://udify.app/chat/uIkDZGrH0miahax3"></iframe>
+        <iframe data-src="https://udify.app/chat/77A1ymjPJvcQdPd2"></iframe>
+        <iframe data-src="https://udify.app/chat/YobkrDsZdtlD6A6A"></iframe>
+        <iframe data-src="https://udify.app/chat/3c09C7zIXwQsLgru"></iframe>
     </div>
+    <script>
+        function loadIframe(iframe) {
+            iframe.src = iframe.getAttribute('data-src');
+            iframe.style.display = 'block'; // 显示iframe
+        }
+
+        window.onload = function() {
+            const iframes = document.querySelectorAll('iframe[data-src]');
+            for (let i = 0; i < iframes.length; i++) {
+                // 延迟加载每个iframe，间隔200毫秒
+                setTimeout(() => {
+                    loadIframe(iframes[i]);
+                }, i * 200);
+            }
+        };
+    </script>
 </body>
 </html>
