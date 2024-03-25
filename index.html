@@ -1,49 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html>
+
 <head>
     <meta charset="UTF-8">
-    <title>R&D-Nova test</title>
+    <title>llm side panel</title>
     <style>
         .container {
-            display: flex; /* 使用flex布局 */
-            flex-direction: row; /* 子元素水平排列 */
-            height: 100vh; /* 容器高度为视窗高度 */
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            border: none;
             margin: 0;
             padding: 0;
         }
 
         .container iframe {
-            flex: 1; /* 使所有iframe平均分配空间 */
-            border: none;
+            width: 100%;
+            height: 100%;
             padding: 0;
             margin: 0;
-            display: none; /* 初始时不显示iframe */
+            border: none;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <iframe data-src="https://udify.app/chat/wJw8jgRQOb8lCaPr"></iframe>
-        <iframe data-src="https://udify.app/chat/uIkDZGrH0miahax3"></iframe>
-        <iframe data-src="https://udify.app/chat/77A1ymjPJvcQdPd2"></iframe>
-        <iframe data-src="https://udify.app/chat/YobkrDsZdtlD6A6A"></iframe>
-        <iframe data-src="https://udify.app/chat/3c09C7zIXwQsLgru"></iframe>
+        <iframe src="https://udify.app/chat/YobkrDsZdtlD6A6A"></iframe>
     </div>
-    <script>
-        function loadIframe(iframe) {
-            iframe.src = iframe.getAttribute('data-src');
-            iframe.style.display = 'block'; // 显示iframe
-        }
-
-        window.onload = function() {
-            const iframes = document.querySelectorAll('iframe[data-src]');
-            for (let i = 0; i < iframes.length; i++) {
-                // 延迟加载每个iframe，间隔200毫秒
-                setTimeout(() => {
-                    loadIframe(iframes[i]);
-                }, i * 2000);
-            }
-        };
-    </script>
 </body>
+
 </html>
